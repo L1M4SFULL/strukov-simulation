@@ -1,3 +1,7 @@
+<!-- Isso é um hack para GitHub readme para usar latex: os scripts ficam "invisíveis" devido ao HTML -->
+[comment]: <> (<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>)
+[comment]: <> (<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>)
+
 O programa exposto nesse repositório é fruto de um trabalho realizado para a disciplina de física computacional II, cursada na Universidade Federal do Rio Grande do Sul (UFRGS). Afim de exercitar os conhecimentos obtidos de simulação por métodos numéricos para resolução de equações diferenciais ordinárias.
 
 ## Introdução
@@ -18,5 +22,73 @@ $$ M(q(t)) = \frac{v(t)}{i(t)} $$
 
 Sua primeira realização prática ocorreu somente em 2008, por Stanley Williams e sua equipe na Hewllet-Packard (HP). A causa dessa demora é dada pelo fato do campo magnético não desempenhar um papel explícito no mecanismo de memresistência, fazendo os interessados pesquisarem nos materiais errados (STRUKOV et al., 2008; WILLIAMNS, 2008). O próprio desconhecimento desse mecanismo não era - e ainda não é - completamente compreendido. Mesmo que um resistor consiga alterar sua resistência conforme a passagem de corrente, ele precisa manter essa configuração de forma permanente até que a corrente flua novamente e haja a atualização na resistência - fenômeno conhecido como não-volatividade (VENTRA, PERSHIN, 2015).
 
-Na pesquisa da HP foram produzidos filmes de óxido de 5nm, onde continha dióxido de titânio (TiO\textsubscript{2}) isolante e dióxido de titânio com uma ligeira depleção de átomos de oxigênio (TiO\textsubscript{2-x}) condutor, ensanduichados entre dois eletrodos de platina de 5 nm de espessura e 50 nm de largura. Esses filmes foram montados na forma de ponto cruzado (crosspoint) ilustrada na figura \subref{fig:crosspoint}, para então gerar matrizes de barras transversais (crossbar array). Na figura 2 temos uma matriz 1x17 formada desses componentes. Essa configuração é mais próxima de uma aplicação comercial, pois aumenta a densidade do componente de memória.
+Na pesquisa da HP foram produzidos filmes de óxido de 5nm, onde continha dióxido de titânio TiO<sub>2-x</sub> isolante e dióxido de titânio com uma ligeira depleção de átomos de oxigênio TiO<sub>2</sub> condutor, ensanduichados entre dois eletrodos de platina de 5 nm de espessura e 50 nm de largura. Esses filmes foram montados na forma de ponto cruzado (crosspoint) ilustrada na figura \subref{fig:crosspoint}, para então gerar matrizes de barras transversais (crossbar array). Na figura 2 temos uma matriz 1x17 formada desses componentes. Essa configuração é mais próxima de uma aplicação comercial, pois aumenta a densidade do componente de memória.
 
+Em 1976, chua e kang generalizaram o conceito de memristor para uma classe de sistemas dinâmicos chamada de sistemas memristivos, descritos pelo conjunto de equações:
+
+$$
+\begin{equation}
+\begin{cases}
+    v = R(w, i)i \\
+    \frac{dw}{dt} = f(w,i)
+\end{cases}
+\end{equation}
+$$
+
+Onde w é uma váriavel de estado e R e f são funções explicitas no tempo. No entanto, passados 30 anos, não foi encontrado dispositivo físico que se aplica-se a matemática apresentada em \eqref{eqdifsis}. Contudo, mm 2008, pesquisadores da HP ao estudar materiais com espessura nanométrica, conseguiram conectar a teoria matemática aos dispositivos crosspoint estudados. Eles notaram que a passagem de corrente do terminal que continha o material condutor fazia com que os íons de oxigênio $O^{2-}$ movessem-se em direção ao terminal contrário, no sentido da corrente. Esse efeito de deriva iônica fazia com que os íons de carga negativa se adensassem próximo ao eletrodo. Ocorre que nesse processo há um a mudança na resistividade total do sistema, causada pela alteração na proporção de cada material em relação a largura total do memristor. Na realidade esse efeito não era novo, pois havia muito tempo que cientistas estavam atrás de explicações para anomalias na relação corrente-tenção, principalmente em materiais de filmes finos, só não havia vinculação com a hipótese dada por Chua.
+
+Os pesquisadores adaptaram os resultados e modelaram no seguinte sistema memristivo:
+
+$$
+\begin{equation}
+\begin{cases}
+v(t) = (R_{on} \frac{w(t)}{D} + R_{off}(1 - \frac{w(t)}{D}))i(t) \\
+\frac{dw}{dt} = \mu_{v}\frac{R_{on}}{D}q(t)
+\end{cases}
+\end{equation}
+$$
+
+Onde as variáveis são explicadas na tabela abaixo e a célula memristora ilustrada na figura :
+
+<table style="margin: auto; border-collapse: collapse;">
+  <caption style="font-style: italic; margin-bottom: 10px;"><strong>Tabela 1:</strong> Parâmetros Típicos de Memristores (STRUKOV et al., 2008)</caption>
+  <thead>
+    <tr style="border-bottom: 2px solid black;">
+      <th style="padding: 8px; text-align: left;">Parâmetro</th>
+      <th style="padding: 8px; text-align: left;">Descrição</th>
+      <th style="padding: 8px; text-align: center;">Faixa de Valores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">$R_{\text{ON}}$</td>
+      <td style="padding: 8px;">Resistência do material dopado (ON)</td>
+      <td style="padding: 8px; text-align: center;">1 a 10 kΩ</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">$R_{\text{OFF}}$</td>
+      <td style="padding: 8px;">Resistência do material não dopado (ON)</td>
+      <td style="padding: 8px; text-align: center;">10 a 100 MΩ</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">$D$</td>
+      <td style="padding: 8px;">Espessura da camada ativa</td>
+      <td style="padding: 8px; text-align: center;">5 a 20 nm</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">$\mu_v$</td>
+      <td style="padding: 8px;">Mobilidade iônica/voltagem</td>
+      <td style="padding: 8px; text-align: center;">10<sup>−16</sup> a 10<sup>−12</sup> m<sup>2</sup>·V<sup>−1</sup>·s<sup>−1</sup></td>
+    </tr>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <td style="padding: 8px;">V<sub>0</sub></td>
+      <td style="padding: 8px;">Tensão de operação</td>
+      <td style="padding: 8px; text-align: center;">0.5 a 2 V</td>
+    </tr>
+    
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.5\linewidth]{celula.png}
+\caption{}
+\label{fig:celula}
+\end{figure}
