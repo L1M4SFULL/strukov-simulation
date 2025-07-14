@@ -24,6 +24,22 @@ Sua primeira realização prática ocorreu somente em 2008, por Stanley Williams
 
 Na pesquisa da HP foram produzidos filmes de óxido de 5nm, onde continha dióxido de titânio TiO<sub>2-x</sub> isolante e dióxido de titânio com uma ligeira depleção de átomos de oxigênio TiO<sub>2</sub> condutor, ensanduichados entre dois eletrodos de platina de 5 nm de espessura e 50 nm de largura. Esses filmes foram montados na forma de ponto cruzado (crosspoint) ilustrada na figura \subref{fig:crosspoint}, para então gerar matrizes de barras transversais (crossbar array). Na figura 2 temos uma matriz 1x17 formada desses componentes. Essa configuração é mais próxima de uma aplicação comercial, pois aumenta a densidade do componente de memória.
 
+<div style="text-align: center; margin: 20px 0;">
+  <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+    <div style="width: 48%;">
+      <img src="imagens/crosspoint.jpg" alt="Estrutura do crosspoint" style="width: 100%; border: 1px solid #ddd;"/>
+      <div style="font-style: italic; text-align: center;">(a)</div>
+    </div>
+    <div style="width: 48%;">
+      <img src="imagens/crossbar.jpg" alt="Microscopia de memristores" style="width: 100%; border: 1px solid #ddd;"/>
+      <div style="font-style: italic; text-align: center;">(b)</div>
+    </div>
+  </div>
+  <p style="font-style: italic; text-align: center;">
+    <strong>Figura 1:</strong> (a): Estrutura do crosspoint. (b): Imagem feita em microscópio de força atômica, mostrando 17 memristores lado a lado (J.J. Yang, HP Labs, 2008)
+  </p>
+</div>
+
 Em 1976, chua e kang generalizaram o conceito de memristor para uma classe de sistemas dinâmicos chamada de sistemas memristivos, descritos pelo conjunto de equações:
 
 $$
@@ -86,9 +102,11 @@ Onde as variáveis são explicadas na tabela abaixo e a célula memristora ilust
       <td style="padding: 8px; text-align: center;">0.5 a 2 V</td>
     </tr>
     
+<img style="float: right; max-width: 50px;" src="imagens/celula.png">
+
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.5\linewidth]{celula.png}
+\includegraphics[width=0.5\linewidth]{imagens/celula.png}
 \caption{}
-\label{fig:celula}
 \end{figure}
+
