@@ -3,4 +3,4 @@ O programa python desse repositório contém a simulação com os métodos runge
 
 Para mais detalhes, leia a wiki do repositório. Abaixo ilustramos o resultado final com leiaute semenlhante ao do artigo "The missing memoristor found".
 
-<img src="imagens/resultado_rk4.png" alt="Texto alternativo" width="200" align="center">
+![Resultado](imagens/resultado_rk4.png)
